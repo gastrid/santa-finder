@@ -1,0 +1,19 @@
+When we enter a new person:
+  - enter this person in each other person's potential giftee list
+    - unless the other person has a confirmed giftee
+  - enter this person in each other person's potential santa list
+    - unless the other person has a confirmed santa
+
+When we enter "A giveto B"
+  - we confirm A's giftee (hasGiftee=true, confirmedGiftee=B, 
+    potentialGiftees=[])
+  - we confirm B's Santa (hasSanta=true, confirmedSanta=A, 
+    potentialSantas=[])
+  - remove A from all other people's potentialSantas, check if singles left, recalc probs
+  - remove B from all other people's potentialGiftees, check if singles left, recalc probs
+
+When we enter "A nogiveto B"
+  - We remove A from B's potentialSantas, check if single left,
+  - We remove B from A's potentialGiftees, check if single left,
+
+
