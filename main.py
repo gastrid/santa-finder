@@ -14,6 +14,8 @@ def returnInput(string, comp):
 def analyseInput(string, comp):
   cmds = string.split(" ")
   gives = False
+  if len(cmds) == 0:
+    return
   if cmds[0] == "enter":
     comp.addPeople(cmds[1:])
     return

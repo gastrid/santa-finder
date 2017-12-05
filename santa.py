@@ -65,7 +65,8 @@ class Santa:
     self.potentialSantas = []
 
   def removeGiftee(self, giftee):
-    self.potentialGiftees.remove(giftee)
+    if giftee in self.potentialGiftees:    
+      self.potentialGiftees.remove(giftee)
     if len(self.potentialGiftees) == 1:
       self.hasGiftee = True
       self.confirmedGiftee = self.potentialGiftees[0]
@@ -74,7 +75,8 @@ class Santa:
     return None, None
 
   def removeSanta(self, santa):
-    self.potentialSantas.remove(santa)
+    if santa in self.potentialSantas:
+      self.potentialSantas.remove(santa)
     if len(self.potentialSantas) == 1:
       self.hasSanta = True
       self.confirmedSanta = self.potentialSantas[0]
