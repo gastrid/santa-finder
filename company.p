@@ -205,7 +205,7 @@ ssS'natalie'
 p63
 (dp64
 g3
-g6
+g18
 sg5
 g6
 ssg58
@@ -246,7 +246,7 @@ ssg18
 g3
 g15
 sg5
-g6
+g63
 ssS'roger'
 p74
 (dp75
