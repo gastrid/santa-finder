@@ -14,11 +14,17 @@ class Company:
         pRow['confirmedSanta'] = p.confirmedSanta.name
       else:
         pRow['confirmedSanta'] = ''
+        pRow['potentialSantas'] = []
+        for pp in p.potentialSantas:
+          pRow['potentialSantas'].append(pp.name)
 
       if p.confirmedGiftee != '':
         pRow['confirmedGiftee'] = p.confirmedGiftee.name
       else:
         pRow['confirmedGiftee'] = ''
+        pRow['potentialGiftees'] = []
+        for pp in p.potentialGiftees:
+          pRow['potentialGiftees'].append(pp.name)
 
       companyMatrix[p.name] = pRow
     return companyMatrix
@@ -36,7 +42,7 @@ class Company:
         p.confirmedSanta = self.people[cs]
       else: 
         for nn, pp, in self.people.items():
-          if (pp.name != p.name) & (pp.name != cs):
+          if (pp.name != p.name) & (pp.name != cs) & (matrix[pp.name]['confirmedGiftee'] == ''):
             p.addToPotentialSantas(pp)
 
       cg = matrix[n]['confirmedGiftee']
@@ -45,7 +51,7 @@ class Company:
         p.confirmedGiftee = self.people[cg]
       else: 
         for nn, pp, in self.people.items():
-          if (pp.name != p.name) & (pp.name != cg):
+          if (pp.name != p.name) & (pp.name != cg) & (matrix[pp.name]['confirmedSanta'] == ''):
             p.addToPotentialGiftees(pp)
 
   def show(self, person):
