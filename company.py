@@ -41,18 +41,16 @@ class Company:
         p.hasSanta = True
         p.confirmedSanta = self.people[cs]
       else: 
-        for nn, pp, in self.people.items():
-          if (pp.name != p.name) & (pp.name != cs) & (matrix[pp.name]['confirmedGiftee'] == ''):
-            p.addToPotentialSantas(pp)
+        for s in matrix[n]['potentialSantas']:
+          p.addToPotentialSantas(self.people[s])
 
       cg = matrix[n]['confirmedGiftee']
       if cg != '':
         p.hasGiftee = True
         p.confirmedGiftee = self.people[cg]
       else: 
-        for nn, pp, in self.people.items():
-          if (pp.name != p.name) & (pp.name != cg) & (matrix[pp.name]['confirmedSanta'] == ''):
-            p.addToPotentialGiftees(pp)
+        for g in matrix[n]['potentialGiftees']:
+          p.addToPotentialGiftees(self.people[g])
 
   def show(self, person):
     if (person == 'company'):
